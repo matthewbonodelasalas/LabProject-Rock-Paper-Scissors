@@ -1,0 +1,27 @@
+@startuml
+
+skinparam packageStyle rectangle
+Actor Player
+(Computer)-->(Play)
+
+ rectangle Computer_Program {
+ (Import randit) --> (Play options)
+ (Play options)-->(set up players)
+ (set up players) -->(Computer):(0,2)
+ (set up players) -->Player :False
+ Player --> (input):True
+ (input)-->(invalid)
+ (invalid)-->Player :False
+ (input)-->(While loop)
+ (Play)-->(While loop)
+ (While loop)-->(Every possible outcome)
+ (Every possible outcome)-->(Output)
+ (Output)-->(Win)
+ (Output)-->(Lose)
+ (Output)-->(Tie)
+ (Win)-->(Player):False
+ (Lose)-->(Player):False
+ (Tie)-->(Player):False
+
+ }
+@enduml
